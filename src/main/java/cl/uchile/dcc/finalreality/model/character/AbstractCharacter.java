@@ -81,6 +81,7 @@ public abstract class AbstractCharacter implements GameCharacter {
     return name;
   }
 
+
   @Override
   public int getCurrentHp() {
     return currentHp;

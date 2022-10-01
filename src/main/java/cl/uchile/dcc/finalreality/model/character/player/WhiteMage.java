@@ -38,8 +38,8 @@ public class WhiteMage extends AbstractMage {
    *     the character's max mp
    */
 
-  protected WhiteMage(final @NotNull String name, final int maxHp, final int defense,
-                      int maxMp, final @NotNull BlockingQueue<GameCharacter> turnsQueue)
+  public WhiteMage(final @NotNull String name, final int maxHp, final int defense,
+                   int maxMp, final @NotNull BlockingQueue<GameCharacter> turnsQueue)
           throws InvalidStatValueException {
     super(name, maxHp, defense, maxMp, turnsQueue);
   }
