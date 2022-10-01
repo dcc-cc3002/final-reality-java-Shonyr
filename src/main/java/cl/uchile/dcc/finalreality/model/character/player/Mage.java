@@ -8,20 +8,27 @@ package cl.uchile.dcc.finalreality.model.character.player;
  * work. If not, see <http://creativecommons.org/licenses/by/4.0/>.
  */
 
+import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import cl.uchile.dcc.finalreality.model.weapon.Weapon;
 
 /**
- * A {@link GameCharacter} that can equip a weapon.
+ * A {@link PlayerCharacter} that has uses magic power.
  */
-public interface PlayerCharacter extends GameCharacter {
-  /**
-   * Equips a weapon to the character.
-   */
-  void equip(Weapon weapon);
+public interface Mage extends PlayerCharacter {
 
   /**
-   * Return this character's equipped weapon.
+   * Returns the character's current MP.
    */
-  Weapon getEquippedWeapon();
+  int getCurrentMp();
+
+  /**
+   * Sets the character's current MP.
+   */
+  void setCurrentMp(final int currentMp) throws InvalidStatValueException;
+
+  /**
+   * Returns the character's max MP.
+   */
+  int getMaxMp();
 }
