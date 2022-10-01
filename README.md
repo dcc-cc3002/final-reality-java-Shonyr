@@ -26,6 +26,9 @@ All classes are implemented using inheritance. Making an AbstractCharacter class
 For weapons there is the AbstractWeapon class, this class has all the basic information regarding the atributes of the different types of weapons, from which all other weapon classes extend from (Sword, Axe, ... etc.)
 
 The changes realized to the original implementation handed to us are:
+
     - The creation of the abstract class AbstractMage and its interface Mage. this class was given the attributes and methods shared between the originals BlackMage and WhiteMage, making them subclasses of this new abstract
+    
     - The creation AbstractWeapon, an abstract class that has all the basic information of the weapons implemented in the game. An interface for AbstractWeapon was also created, called Weapon
+    
     - The creation of classes for each weapon type enumerated in WeaponType, making them subclasses of AbstractWeapon
