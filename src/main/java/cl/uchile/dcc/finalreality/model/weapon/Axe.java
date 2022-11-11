@@ -1,6 +1,7 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
 
+import cl.uchile.dcc.finalreality.model.character.player.*;
 import java.util.Objects;
 
 /**
@@ -17,7 +18,15 @@ public class Axe extends AbstractWeapon {
     super(name, damage, weight);
   }
 
+  @Override
+  public void equippedByKnight(Knight knight) {
+    knight.equipfr(this);
+  }
 
+  @Override
+  public void equippedByEngineer(Engineer engineer) {
+    engineer.equipfr(this);
+  }
 
 
   @Override

@@ -1,5 +1,6 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
+import cl.uchile.dcc.finalreality.model.character.player.*;
 import java.util.Objects;
 
 /**
@@ -17,6 +18,15 @@ public class Sword extends AbstractWeapon {
     super(name, damage, weight);
   }
 
+  @Override
+  public void equippedByKnight(Knight knight) {
+    knight.equipfr(this);
+  }
+
+  @Override
+  public void equippedByThief(Thief thief) {
+    thief.equipfr(this);
+  }
 
   @Override
   public boolean equals(final Object o) {

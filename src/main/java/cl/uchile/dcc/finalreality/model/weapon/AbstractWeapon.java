@@ -1,6 +1,19 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
-import java.util.Objects;
+
+
+
+
+
+
+
+
+
+
+
+
+import cl.uchile.dcc.finalreality.model.character.player.*;
+
 
 /**
  * A class that holds all the information of a weapon.
@@ -42,6 +55,29 @@ public abstract class AbstractWeapon implements Weapon {
     return weight;
   }
 
+  @Override
+  public void equippedByThief(Thief thief) {
+    ;
+  }
 
+  @Override
+  public void equippedByBlackMage(BlackMage blackmage) {
+    ;
+  }
+
+  @Override
+  public void equippedByEngineer(Engineer engineer) {
+    ;
+  }
+
+  @Override
+  public void equippedByKnight(Knight knight) {
+    ;
+  }
+
+  @Override
+  public void equippedByWhiteMage(WhiteMage whitemage) {
+    ;
+  }
 
 }

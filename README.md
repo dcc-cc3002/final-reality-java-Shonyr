@@ -29,3 +29,14 @@ The changes realized to the original implementation handed to us are:
     - The creation of the abstract class AbstractMage and its interface Mage. this class was given the attributes and methods shared between the originals BlackMage and WhiteMage, making them subclasses of this new abstract
     - The creation AbstractWeapon, an abstract class that has all the basic information of the weapons implemented in the game. An interface for AbstractWeapon was also created, called Weapon
     - The creation of classes for each weapon type enumerated in WeaponType, making them subclasses of AbstractWeapon
+
+---
+
+Implementation for T2
+
+The program no longer has a Main class, for checking the tests and the coverage of these you need to run the 'TEST AND COVERAGE CHECK' thats on your IDE (IntelliJ in my case) 
+Other things that are implemented this time around are the checks for when the characters equip a weapon, if they can't use the weapon that they are trying to equip, the program will do nothing, if the character can, it will be equipped. This was implemented using the double dispatch design pattern, the character sending a message to the weapon that they want to equip, the weapon knows who (their class) send the message and executes the corresponding method, if it does nothing, then the character is not able to use that kind of weapon, if it is equipped, then the character is able to use that weapon
+
+In summary, the changes realized from T1 to T2 are:
+    - Deletion of the Main class that had all the Tests using prints and implementation of real java tests
+    - Addition restrictions at the time of equipping a weapon depending on the type of weapon and the class of the character

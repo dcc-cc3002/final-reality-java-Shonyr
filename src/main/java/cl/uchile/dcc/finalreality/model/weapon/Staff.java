@@ -1,6 +1,6 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
-
+import cl.uchile.dcc.finalreality.model.character.player.*;
 import java.util.Objects;
 
 /**
@@ -17,6 +17,15 @@ public class Staff extends AbstractWeapon {
     super(name, damage, weight);
   }
 
+  @Override
+  public void equippedByBlackMage(BlackMage blackmage) {
+    blackmage.equipfr(this);
+  }
+
+  @Override
+  public void equippedByWhiteMage(WhiteMage whiteMage) {
+    whiteMage.equipfr(this);
+  }
 
   @Override
   public boolean equals(final Object o) {

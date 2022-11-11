@@ -9,10 +9,10 @@
 package cl.uchile.dcc.finalreality.model.character.player;
 
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
-import cl.uchile.dcc.finalreality.exceptions.Require;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
+import cl.uchile.dcc.finalreality.model.weapon.Weapon;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -42,6 +42,11 @@ public class WhiteMage extends AbstractMage {
                    int maxMp, final @NotNull BlockingQueue<GameCharacter> turnsQueue)
           throws InvalidStatValueException {
     super(name, maxHp, defense, maxMp, turnsQueue);
+  }
+
+  @Override
+  public void equip(Weapon weapon) {
+    weapon.equippedByWhiteMage(this);
   }
 
   @Override
