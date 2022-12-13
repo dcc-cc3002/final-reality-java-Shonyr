@@ -1,6 +1,8 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
-import cl.uchile.dcc.finalreality.model.character.player.*;
+import cl.uchile.dcc.finalreality.model.character.player.melee.Engineer;
+import cl.uchile.dcc.finalreality.model.character.player.melee.Thief;
+
 import java.util.Objects;
 
 /**

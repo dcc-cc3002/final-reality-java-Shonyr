@@ -86,4 +86,10 @@ public abstract class AbstractCharacter implements GameCharacter {
     Require.statValueAtMost(maxHp, hp, "Current HP");
     currentHp = hp;
   }
+
+  @Override
+  public void attacked(int dmg) throws InvalidStatValueException {
+    this.setCurrentHp(getCurrentHp() - ((dmg*100)/(100+this.defense)));
+  }
+
 }

@@ -1,7 +1,11 @@
 package cl.uchile.dcc.finalreality.model.weapon;
 
 
-import cl.uchile.dcc.finalreality.model.character.player.*;
+import cl.uchile.dcc.finalreality.model.character.player.mage.BlackMage;
+import cl.uchile.dcc.finalreality.model.character.player.mage.WhiteMage;
+import cl.uchile.dcc.finalreality.model.character.player.melee.Engineer;
+import cl.uchile.dcc.finalreality.model.character.player.melee.Knight;
+import cl.uchile.dcc.finalreality.model.character.player.melee.Thief;
 
 /**
  * A class that holds all the information of a weapon.
@@ -50,4 +54,7 @@ public interface Weapon {
    * Equip the weapon or not depending on whether a WhiteMage can use it
    */
   void equippedByWhiteMage(WhiteMage whiteMage);
+
+
+  int spellDamage();
 }

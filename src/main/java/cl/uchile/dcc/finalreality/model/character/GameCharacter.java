@@ -41,4 +41,14 @@ public interface GameCharacter {
    * Sets this character's current HP to {@code newHp}.
    */
   void setCurrentHp(int hp) throws InvalidStatValueException;
+
+  /**
+   * Attacks a GameCharacter
+   */
+  void attack(GameCharacter gc) throws InvalidStatValueException;
+
+  /**
+   * Loses HP based on defense and the damage received
+   */
+  void attacked(int dmg) throws InvalidStatValueException;
 }

@@ -12,7 +12,11 @@ package cl.uchile.dcc.finalreality.model.weapon;
 
 
 
-import cl.uchile.dcc.finalreality.model.character.player.*;
+import cl.uchile.dcc.finalreality.model.character.player.mage.BlackMage;
+import cl.uchile.dcc.finalreality.model.character.player.mage.WhiteMage;
+import cl.uchile.dcc.finalreality.model.character.player.melee.Engineer;
+import cl.uchile.dcc.finalreality.model.character.player.melee.Knight;
+import cl.uchile.dcc.finalreality.model.character.player.melee.Thief;
 
 
 /**
@@ -78,6 +82,11 @@ public abstract class AbstractWeapon implements Weapon {
   @Override
   public void equippedByWhiteMage(WhiteMage whitemage) {
     ;
+  }
+
+  @Override
+  public int spellDamage(){
+    return this.getDamage()*3/4;
   }
 
 }

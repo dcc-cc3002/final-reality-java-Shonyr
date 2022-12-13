@@ -6,25 +6,30 @@
  * work. If not, see <http://creativecommons.org/licenses/by/4.0/>.
  */
 
-package cl.uchile.dcc.finalreality.model.character.player;
+package cl.uchile.dcc.finalreality.model.character.player.melee;
 
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
+
+import cl.uchile.dcc.finalreality.model.character.player.AbstractPlayerCharacter;
+import cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter;
 import cl.uchile.dcc.finalreality.model.weapon.Weapon;
 import org.jetbrains.annotations.NotNull;
 
+
 /**
- * A {@link PlayerCharacter} that can equip {@code Staff}s and use <i>white magic</i>.
+ * A {@link PlayerCharacter} that can equip {@code Axe}s and {@code Bow}s.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
  * @author Jonathan Riquelme
  */
-public class WhiteMage extends AbstractMage {
+public class Engineer extends AbstractPlayerCharacter {
+
 
   /**
-   * Creates a new character.
+   * Creates a new engineer.
    *
    * @param name
    *     the character's name
@@ -34,45 +39,40 @@ public class WhiteMage extends AbstractMage {
    *     the character's defense
    * @param turnsQueue
    *     the queue with the characters waiting for their turn
-   * @param maxMp
-   *     the character's max mp
    */
-
-  public WhiteMage(final @NotNull String name, final int maxHp, final int defense,
-                   int maxMp, final @NotNull BlockingQueue<GameCharacter> turnsQueue)
-          throws InvalidStatValueException {
-    super(name, maxHp, defense, maxMp, turnsQueue);
+  public Engineer(final @NotNull String name, final int maxHp, final int defense,
+      final @NotNull BlockingQueue<GameCharacter> turnsQueue)
+      throws InvalidStatValueException {
+    super(name, maxHp, defense, turnsQueue);
   }
 
   @Override
   public void equip(Weapon weapon) {
-    weapon.equippedByWhiteMage(this);
+    weapon.equippedByEngineer(this);
   }
 
+
   @Override
-  public boolean equals(final Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (!(o instanceof final WhiteMage that)) {
-      return false;
-    }
-    return hashCode() == that.hashCode()
-        && maxMp == that.maxMp
-        && name.equals(that.name)
-        && maxHp == that.maxHp
-        && defense == that.defense;
+  public String toString() {
+    return "Engineer{maxHp=%d, defense=%d, name='%s'}".formatted(maxHp, defense, name);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(WhiteMage.class, name, maxHp, defense, maxMp);
+    return Objects.hash(Engineer.class, name, maxHp, defense);
   }
 
   @Override
-  public String toString() {
-    return "WhiteMage{maxMp=%d, maxHp=%d, defense=%d, name='%s'}"
-        .formatted(maxMp, maxHp, defense, name);
+  public boolean equals(final Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (!(obj instanceof final Engineer that)) {
+      return false;
+    }
+    return hashCode() == that.hashCode()
+        && name.equals(that.name)
+        && maxHp == that.maxHp
+        && defense == that.defense;
   }
-
 }

@@ -2,6 +2,8 @@ package cl.uchile.dcc.finalreality.model.character.player;
 
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
+import cl.uchile.dcc.finalreality.model.character.player.mage.BlackMage;
+import cl.uchile.dcc.finalreality.model.character.player.melee.Knight;
 import cl.uchile.dcc.finalreality.model.weapon.Knife;
 import cl.uchile.dcc.finalreality.model.weapon.Staff;
 import cl.uchile.dcc.finalreality.model.weapon.Sword;

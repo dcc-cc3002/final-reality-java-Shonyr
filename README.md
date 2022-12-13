@@ -40,3 +40,14 @@ Other things that are implemented this time around are the checks for when the c
 In summary, the changes realized from T1 to T2 are:
     - Deletion of the Main class that had all the Tests using prints and implementation of real java tests
     - Addition restrictions at the time of equipping a weapon depending on the type of weapon and the class of the character
+
+---
+
+Implementation for T3
+
+The implementation is not complete, it has all the elements, classes and methods needed to work, but the game in itself has not been implemented, it lacks the turn-based combat system that needs to be playable.
+
+The program implements attacks and spells and a basic controller that can handle everything that a player would want to do
+The implementation of the new features used a variety of different design patterns, like double dispatch for performing attacks and spells and receiving them, observer for the abnormal statuses like poison, and paralysis.
+The central controller is implemented using the design pattern of singleton
+The implementation of the controller simplifies the creation of enemies, characters and weapons, also simplifing other actions, like using spells and equipping weapons. It also has other methods, like being able to reselt the whole controller.

@@ -1,7 +1,7 @@
 package cl.uchile.dcc.finalreality.model.character;
 
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
-import cl.uchile.dcc.finalreality.model.character.player.Knight;
+import cl.uchile.dcc.finalreality.model.character.player.melee.Knight;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,9 +22,9 @@ class EnemyTest {
 
     @BeforeEach
     void setUp() throws InvalidStatValueException {
-        e = new Enemy("Enemigo", 1, 1, 1, turnsQueue);
-        n = new Enemy("Enemigo", 1, 1, 1, turnsQueue);
-        m = new Enemy("Enemig", 2, 2, 2, turnsQueue);
+        e = new Enemy("Enemigo", 1, 1, 1, 1, turnsQueue);
+        n = new Enemy("Enemigo", 1, 1, 1, 1 ,turnsQueue);
+        m = new Enemy("Enemig", 2, 2, 2, 1, turnsQueue);
         turnsQueue = new LinkedBlockingQueue<>();
 
         k = new Knight("Knight", 1, 1, turnsQueue);

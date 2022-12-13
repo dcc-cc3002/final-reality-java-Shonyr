@@ -8,6 +8,7 @@ package cl.uchile.dcc.finalreality.model.character.player;
  * work. If not, see <http://creativecommons.org/licenses/by/4.0/>.
  */
 
+import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import cl.uchile.dcc.finalreality.model.weapon.Weapon;
 
@@ -29,4 +30,9 @@ public interface PlayerCharacter extends GameCharacter {
    * Return this character's equipped weapon.
    */
   Weapon getEquippedWeapon();
+
+  /**
+   * Effect that happens when targeted by heal spell
+   */
+  void affectedByHeal() throws InvalidStatValueException;
 }

@@ -1,7 +1,6 @@
 package cl.uchile.dcc.finalreality.model.character;
 
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
-import cl.uchile.dcc.finalreality.model.character.player.Knight;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +15,7 @@ class AbstractCharacterTest {
 
     @BeforeEach
     void setUp() throws InvalidStatValueException {
-        k = new Enemy("Enegimo", 3, 2, 3, turnsQueue);
+        k = new Enemy("Enegimo", 3, 2, 3, 1, turnsQueue);
     }
 
 

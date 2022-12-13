@@ -10,6 +10,7 @@ package cl.uchile.dcc.finalreality.model.character.player;
 
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.model.character.AbstractCharacter;
+import cl.uchile.dcc.finalreality.model.character.Enemy;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import cl.uchile.dcc.finalreality.model.weapon.Weapon;
 import java.util.concurrent.BlockingQueue;
@@ -30,7 +31,7 @@ import org.jetbrains.annotations.NotNull;
 public abstract class AbstractPlayerCharacter extends AbstractCharacter implements
     PlayerCharacter {
 
-  private Weapon equippedWeapon = null;
+  protected Weapon equippedWeapon = null;
 
   /**
    * Creates a new character.
@@ -59,6 +60,16 @@ public abstract class AbstractPlayerCharacter extends AbstractCharacter implemen
   @Override
   public Weapon getEquippedWeapon() {
     return equippedWeapon;
+  }
+
+  @Override
+  public void attack(GameCharacter gc) throws InvalidStatValueException {
+    gc.attacked(this.equippedWeapon.getDamage());
+  }
+
+  @Override
+  public void affectedByHeal() throws InvalidStatValueException {
+    this.setCurrentHp(getCurrentHp() + getMaxHp()/3);
   }
 
   @Override

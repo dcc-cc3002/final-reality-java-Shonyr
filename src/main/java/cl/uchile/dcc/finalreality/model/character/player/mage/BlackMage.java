@@ -6,12 +6,13 @@
  * work. If not, see <http://creativecommons.org/licenses/by/4.0/>.
  */
 
-package cl.uchile.dcc.finalreality.model.character.player;
+package cl.uchile.dcc.finalreality.model.character.player.mage;
 
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
-import cl.uchile.dcc.finalreality.exceptions.Require;
+import cl.uchile.dcc.finalreality.model.character.Enemy;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import java.util.Objects;
+
 import cl.uchile.dcc.finalreality.model.weapon.Weapon;
 import java.util.concurrent.BlockingQueue;
 import org.jetbrains.annotations.NotNull;
@@ -50,6 +51,26 @@ public class BlackMage extends AbstractMage {
   @Override
   public void equip(Weapon weapon) {
     weapon.equippedByBlackMage(this);
+  }
+
+
+  /**
+   * Throws a thunder spell at an enemy
+   */
+  public void thunderSpell(Enemy e) throws InvalidStatValueException {
+    if (this.getCurrentMp() >= 15) {
+      this.setCurrentMp(this.getCurrentMp() - 15);
+      e.affectedByThunder(this.getEquippedWeapon().spellDamage());
+    }
+  }
+
+  /**
+   * Throws a fire spell at an enemy
+   */  public void fireSpell(Enemy e) throws InvalidStatValueException {
+    if (this.getCurrentMp() >= 15) {
+      this.setCurrentMp(this.getCurrentMp() - 15);
+      e.affectedByFire(this.getEquippedWeapon().spellDamage());
+    }
   }
 
   @Override
