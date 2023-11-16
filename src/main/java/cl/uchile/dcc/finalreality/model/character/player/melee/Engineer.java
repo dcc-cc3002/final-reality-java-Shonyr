@@ -6,12 +6,16 @@
  * work. If not, see <http://creativecommons.org/licenses/by/4.0/>.
  */
 
-package cl.uchile.dcc.finalreality.model.character.player;
+package cl.uchile.dcc.finalreality.model.character.player.melee;
 
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import java.util.Objects;
 import java.util.concurrent.BlockingQueue;
+
+import cl.uchile.dcc.finalreality.model.character.player.AbstractPlayerCharacter;
+import cl.uchile.dcc.finalreality.model.character.player.PlayerCharacter;
+import cl.uchile.dcc.finalreality.model.weapon.Weapon;
 import org.jetbrains.annotations.NotNull;
 
 
@@ -19,7 +23,7 @@ import org.jetbrains.annotations.NotNull;
  * A {@link PlayerCharacter} that can equip {@code Axe}s and {@code Bow}s.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author ~Your name~
+ * @author Jonathan Riquelme
  */
 public class Engineer extends AbstractPlayerCharacter {
 
@@ -41,6 +45,12 @@ public class Engineer extends AbstractPlayerCharacter {
       throws InvalidStatValueException {
     super(name, maxHp, defense, turnsQueue);
   }
+
+  @Override
+  public void equip(Weapon weapon) {
+    weapon.equippedByEngineer(this);
+  }
+
 
   @Override
   public String toString() {

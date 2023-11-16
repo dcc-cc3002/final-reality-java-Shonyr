@@ -10,9 +10,12 @@ package cl.uchile.dcc.finalreality.model.character.player;
 
 import cl.uchile.dcc.finalreality.exceptions.InvalidStatValueException;
 import cl.uchile.dcc.finalreality.model.character.AbstractCharacter;
+import cl.uchile.dcc.finalreality.model.character.Enemy;
 import cl.uchile.dcc.finalreality.model.character.GameCharacter;
 import cl.uchile.dcc.finalreality.model.weapon.Weapon;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -23,12 +26,12 @@ import org.jetbrains.annotations.NotNull;
  * waiting for their turn ({@code turnsQueue}), and can equip a {@link Weapon}.
  *
  * @author <a href="https://www.github.com/r8vnhill">R8V</a>
- * @author ~Your name~
+ * @author Jonathan Riquelme
  */
 public abstract class AbstractPlayerCharacter extends AbstractCharacter implements
     PlayerCharacter {
 
-  private Weapon equippedWeapon = null;
+  protected Weapon equippedWeapon = null;
 
   /**
    * Creates a new character.
@@ -50,12 +53,34 @@ public abstract class AbstractPlayerCharacter extends AbstractCharacter implemen
   }
 
   @Override
-  public void equip(Weapon weapon) {
+  public void equipfr(Weapon weapon) {
     this.equippedWeapon = weapon;
   }
 
   @Override
   public Weapon getEquippedWeapon() {
     return equippedWeapon;
+  }
+
+  @Override
+  public void attack(GameCharacter gc) throws InvalidStatValueException {
+    gc.attacked(this.equippedWeapon.getDamage());
+  }
+
+  @Override
+  public void affectedByHeal() throws InvalidStatValueException {
+    this.setCurrentHp(getCurrentHp() + getMaxHp()/3);
+  }
+
+  @Override
+  public void waitTurn() {
+    scheduledExecutor = Executors.newSingleThreadScheduledExecutor();
+    var player = (PlayerCharacter) this;
+
+    scheduledExecutor.schedule(
+            /* command = */ this::addToQueue,
+            /* delay = */ player.getEquippedWeapon().getWeight() / 10,
+            /* unit = */ TimeUnit.SECONDS);
+
   }
 }
